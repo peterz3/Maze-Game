@@ -1,1 +1,3 @@
-# Project Proposal
+## Project Proposal
+#Maze Game
+
