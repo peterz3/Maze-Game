@@ -1,7 +1,7 @@
 # Created by https://www.gitignore.io/api/c++,xcode,visualstudio,openframeworks,openframeworks+visualstudio
 
 
-SDL/
+/SDL
 /SDL2_image-2.0.1
 
 
