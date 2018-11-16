@@ -1,9 +1,9 @@
 #pragma once
-#ifndef game_hpp
-#define game_hpp
+
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "Map.h"
 #include <stdio.h>
 
 class Game {
@@ -17,12 +17,14 @@ class Game {
 	void render();
 	void clean();
 	bool running();
+
+	static SDL_Renderer *renderer;
+
 private:
 	int count = 0;
 	bool is_running;
 	SDL_Window *window;
-	SDL_Renderer *renderer;
 };
 
-#endif // !game_hpp
+
 

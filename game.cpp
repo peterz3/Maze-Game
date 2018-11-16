@@ -1,7 +1,18 @@
 #include "game.h"
+#include "TextureManager.h"
+#include "GameObject.h"
+#include "Map.cpp"
 #include <iostream>
 
 SDL_Texture *image;
+SDL_Rect src,dst;
+GameObject* player;
+GameObject* enemy;
+Map* map;
+
+SDL_Renderer* Game::renderer = nullptr;
+
+
 
 Game::Game() {
 
@@ -11,6 +22,8 @@ Game::~Game() {
 }
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
+	dst.h = 50;
+	dst.w = 50;
 	int flags = 0;
 	if (fullscreen) {
 		flags = SDL_WINDOW_FULLSCREEN;
@@ -19,14 +32,12 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
 		renderer = SDL_CreateRenderer(window, -1, 0);
 		if (renderer) {
-			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+			SDL_SetRenderDrawColor(renderer, 255, 255, 255,  255);
 			is_running = true;
 		}
-		SDL_Surface *tmpSurface = IMG_Load("mark.png");
-		std::cout << IMG_GetError();
-		image = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-		SDL_FreeSurface(tmpSurface);
-		SDL_FreeSurface(tmpSurface);
+		player = new GameObject("knight.png", 0, 0);
+		enemy = new GameObject("dragon.png", 250, 250);
+		map = new Map();
 	}
 } 
 void Game::handleEvents() {
@@ -44,18 +55,25 @@ void Game::handleEvents() {
 
 }
 void Game::update() {
-	count++;
+	player->Update();
+	enemy->Update();
 
 }
 void Game::render() {
 	SDL_RenderClear(renderer);
-	SDL_RenderCopy(renderer, image, NULL, NULL);
+	map->DrawMap();
+	player->Render();
+	enemy->Render();
 	SDL_RenderPresent(renderer);
 }
 void Game::clean() {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
+	delete player;
+	delete enemy;
+	delete map;
+
 	std::cout << "QUITTTED";
 }
 bool Game::running() {
