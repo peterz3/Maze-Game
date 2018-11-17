@@ -1,6 +1,6 @@
-#Development Log
 
-## 11/10 to 11/13
+
+# 11/10 to 11/13
 setup SDL with visual studio and created screen with background color
 
 # 11/13 to 11/14
