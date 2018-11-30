@@ -11,6 +11,11 @@ public:
 	KeyboardController(Map *newmap) {
 		map = newmap;
 	}
+	bool validPosCheck(int row, int col) {
+		std::cout << row / map->getDestRectWidth();
+		std::cout << col / map->getDestRectHeight();
+		return (map->getVal(row/map->getDestRectWidth(), col/map->getDestRectHeight())) != 1;
+	}
 
 	void init() override {
 		position = &entity->getComponent<PositionComponent>();
@@ -22,22 +27,22 @@ public:
 		{
 			switch (Game::event.key.keysym.sym) {
 			case SDLK_w:
-				if ( position->y() > 0) {
+				if ( position->y() > 0 && validPosCheck(position->y() - map->getDestRectHeight(), position->x())) {
 					position->move_down(y_movement);
 				}
 				break;
 			case SDLK_s:
-				if (position->y() / map->getDestRectHeight() < map->getHeight() -1) {
+				if ((position->y() / map->getDestRectHeight() < map->getHeight() -1) && validPosCheck(position->y() + map->getDestRectHeight(), position->x())){
 					position->move_up(y_movement);
 				}
 				break;
 			case SDLK_a:
-				if( position->x() > 0) {
+				if( position->x() > 0 && validPosCheck(position->y() , position->x() -map->getDestRectHeight())) {
 				position->move_left(x_movement);
 				}
 				break;
 			case SDLK_d:
-				if (position->x() / map->getDestRectWidth() < map->getWidth() -1) {
+				if ((position->x() / map->getDestRectWidth() < map->getWidth() -1) && validPosCheck(position->y() , position->x() + map->getDestRectHeight())){
 					position->move_right(x_movement);
 				}
 				break;

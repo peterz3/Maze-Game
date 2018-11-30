@@ -71,6 +71,7 @@ void Map :: DrawMap() {
 		}
 	}
 }
+int Map::getVal(int row, int column) { return map[row][column]; }
 int Map::getHeight() { return map_height; }
 int Map::getWidth() { return map_width; }
 int Map::getDestRectHeight() { return dest.h; }

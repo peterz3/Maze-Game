@@ -22,7 +22,6 @@ public:
 	}
 	void move_up(int y_component) {
 		int counter = 0;
-		std::cout << y_component;
 		while (counter < y_component) {
 			ypos++;
 			counter++;
@@ -36,7 +35,6 @@ public:
 		}
 	}
 	void move_left(int x_component ) {
-		std::cout << x_component;
 		int counter = 0;
 		while (counter < x_component ) {
 			xpos--;

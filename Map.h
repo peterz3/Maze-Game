@@ -10,6 +10,7 @@ class Map {
 		int getWidth();
 		int getDestRectHeight();
 		int getDestRectWidth();
+		int getVal(int row, int column);
 	private:
 		SDL_Rect dest;
 		SDL_Rect src;
