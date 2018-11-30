@@ -12,8 +12,6 @@ public:
 		map = newmap;
 	}
 	bool validPosCheck(int row, int col) {
-		std::cout << row / map->getDestRectWidth();
-		std::cout << col / map->getDestRectHeight();
 		return (map->getVal(row/map->getDestRectWidth(), col/map->getDestRectHeight())) != 1;
 	}
 
@@ -42,7 +40,10 @@ public:
 				}
 				break;
 			case SDLK_d:
-				if ((position->x() / map->getDestRectWidth() < map->getWidth() -1) && validPosCheck(position->y() , position->x() + map->getDestRectHeight())){
+				//std::cout << (position->x());
+				//std::cout <<map->getDestRectWidth();
+				std::cout <<(map->getWidth() );
+				if ((position->x() / map->getDestRectWidth() < map->getWidth() -1) && validPosCheck(position->y() , position->x() + map->getDestRectWidth())){
 					position->move_right(x_movement);
 				}
 				break;
