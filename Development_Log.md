@@ -6,5 +6,17 @@ setup SDL with visual studio and created screen with background color
 # 11/13 to 11/14
 loaded images in the screen and moved them around the screen and changed dimensions
 
-# 11/14 to 11/6
+# 11/14 to 11/16
 created a Map, which contains images that create background and used it to load and change background color
+
+# 11/25 to 11/26
+worked on entity controll system and modifying object composition
+
+# 11/26 to 11/27
+worked on fixing include error and tried to get to work with openframeworks
+
+# 11/28 to 11/29
+worked on creating game boundaries, implementing user control and creating walls
+
+# 11/30
+started working on getting maze to scale
