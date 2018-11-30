@@ -13,7 +13,7 @@ public:
 	}
 
 	void init() override {
-		position = &entity -> getComponent<PositionComponent>();
+		position = &entity->getComponent<PositionComponent>();
 		x_movement = map->getDestRectWidth();
 		y_movement = map->getDestRectHeight();
 	}
@@ -22,16 +22,24 @@ public:
 		{
 			switch (Game::event.key.keysym.sym) {
 			case SDLK_w:
-				position->move_up(y_movement);
+				if ( position->y() > 0) {
+					position->move_down(y_movement);
+				}
 				break;
 			case SDLK_s:
-				position->move_down(y_movement);
+				if (position->y() / map->getDestRectHeight() < map->getHeight() -1) {
+					position->move_up(y_movement);
+				}
 				break;
 			case SDLK_a:
+				if( position->x() > 0) {
 				position->move_left(x_movement);
+				}
 				break;
 			case SDLK_d:
-				position->move_right(x_movement);
+				if (position->x() / map->getDestRectWidth() < map->getWidth() -1) {
+					position->move_right(x_movement);
+				}
 				break;
 			default:
 				break;

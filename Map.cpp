@@ -29,8 +29,8 @@ Map::Map() {
 	grass = TextureManager::LoadTexture("grass.png");
 	water = TextureManager::LoadTexture("water.png");
 
-	 map_width = 20;
-	 map_height = 25;
+	 map_height = 20;
+	 map_width = 25;
 
 	LoadMap(lvl1);
 	src.x = 0;
