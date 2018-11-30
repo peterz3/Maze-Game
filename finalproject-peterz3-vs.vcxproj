@@ -137,15 +137,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Downloads\BirchEngine-master\BirchEngine-master\BirchEngine\Src\ECS\ECS.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Downloads\BirchEngine-master\BirchEngine-master\BirchEngine\Src\ECS\ECS.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="KeyBoardController.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="PlayerComponent.h" />
+    <ClInclude Include="PositionComponent.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <ItemGroup>

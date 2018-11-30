@@ -1,4 +1,8 @@
+#pragma once
+
 #include "TextureManager.h"
+#include "game.h"
+#include "SDL_image.h"
 #include <iostream>
 
 SDL_Texture* TextureManager::LoadTexture(const char* texture) {

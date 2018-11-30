@@ -2,14 +2,16 @@
 
 
 #include "SDL.h"
-#include "SDL_image.h"
 #include "Map.h"
 #include <stdio.h>
+#include <iostream>
+
 
 class Game {
-	public:
-		Game();
-		~Game();
+public:
+
+	Game();
+	~Game();
 
 	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
 	void handleEvents();
@@ -17,14 +19,15 @@ class Game {
 	void render();
 	void clean();
 	bool running();
+	int getMapHeight() { return Game::map->getHeight(); }
+	int getMapWidth() { return map->getWidth(); }
 
+	static SDL_Event event;
 	static SDL_Renderer *renderer;
 
 private:
+	Map* map;
 	int count = 0;
 	bool is_running;
 	SDL_Window *window;
 };
-
-
-
