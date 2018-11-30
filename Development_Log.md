@@ -19,7 +19,7 @@ worked on fixing include error and tried to get to work with openframeworks
 worked on creating game boundaries, implementing user control and creating walls
 
 # 11/30
-started working on getting maze to scale
+started working on getting maze to scale, gtting weird bug where program thinks map width is 0
 
 # Next week
 get maze to scale and maybe start working on maze generation algorithms
