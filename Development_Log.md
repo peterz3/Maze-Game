@@ -20,3 +20,6 @@ worked on creating game boundaries, implementing user control and creating walls
 
 # 11/30
 started working on getting maze to scale
+
+# Next week
+get maze to scale and maybe start working on maze generation algorithms
