@@ -10,17 +10,22 @@ private:
 	PositionComponent *position;
 	SDL_Texture *texture;
 	SDL_Rect srcRect, destRect;
+	int height;
+	int width;
 
 public:
 	PlayerComponent() = default;
-	PlayerComponent(const char* path) {
+	PlayerComponent(const char* path, int player_height, int player_width) {
 		texture = TextureManager::LoadTexture(path);
+		height = player_height;
+		width = player_width;
 	}
 	void init() override {
 		position = &entity->getComponent<PositionComponent>();
 		srcRect.x = srcRect.y = 0;
 		srcRect.w = srcRect.h = 32;
-		destRect.w = destRect.h = 32;
+		destRect.w = width;
+		destRect.h = height;
 		
 	}
 	void update() override {

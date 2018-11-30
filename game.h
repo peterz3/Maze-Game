@@ -20,7 +20,7 @@ public:
 	void clean();
 	bool running();
 	int getMapHeight() { return Game::map->getHeight(); }
-	int getMapWidth() { return map->getWidth(); }
+	int getMapWidth() { return Game::map->getWidth(); }
 
 	static SDL_Event event;
 	static SDL_Renderer *renderer;

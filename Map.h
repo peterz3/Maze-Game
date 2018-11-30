@@ -11,6 +11,9 @@ class Map {
 		int getDestRectHeight();
 		int getDestRectWidth();
 		int getVal(int row, int column);
+		void init();
+		const int screen_width = 1250;
+		const int screen_height = 800;
 	private:
 		SDL_Rect dest;
 		SDL_Rect src;

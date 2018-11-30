@@ -40,11 +40,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		}
 		is_running = true;
 	}
-	//player = new GameObject("knight.png", 0, 0);
-	//enemy = new GameObject("dragon.png", 250, 250);
 	map = new Map();
+	map->init();
 	playerEntity.addComponent<PositionComponent>();
-	playerEntity.addComponent<PlayerComponent>("knight.png");
+	playerEntity.addComponent<PlayerComponent>("knight.png", map->getDestRectHeight(), map->getDestRectWidth());
 	playerEntity.addComponent<KeyboardController>(map);
 } 
 void Game::handleEvents() {
@@ -61,8 +60,6 @@ void Game::handleEvents() {
 
 }
 void Game::update() {
-	//player->Update();
-	//enemy->Update()
 	manager.refresh();
 	manager.update();
 
@@ -71,16 +68,12 @@ void Game::render() {
 	SDL_RenderClear(renderer);
 	map->DrawMap();
 	manager.draw();
-	//player->Render();
-	//enemy->Render();
 	SDL_RenderPresent(renderer);
 }
 void Game::clean() {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
-	//delete player;
-	//delete enemy;
 	delete map;
 
 	std::cout << "QUITTTED";
