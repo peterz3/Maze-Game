@@ -26,12 +26,12 @@ public:
 		srcRect.w = srcRect.h = 32;
 		destRect.w = width;
 		destRect.h = height;
-		
+
 	}
 	void update() override {
-			destRect.x = position->x();
-			destRect.y = position->y();
-		
+		destRect.x = width * position->x();
+		destRect.y =  height * position->y();
+
 	}
 	void draw() override {
 		TextureManager::Draw(texture, srcRect, destRect);
@@ -39,5 +39,3 @@ public:
 
 
 };
-
-

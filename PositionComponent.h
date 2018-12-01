@@ -8,11 +8,10 @@ class PositionComponent : public Component {
 private:
 	int xpos;
 	int ypos;
+	int height_scaler;
+	int width_scaler;
 public:
-	PositionComponent() {
-		xpos = 0;
-		ypos = 0;
-	}
+	PositionComponent() = default;
 
 	PositionComponent(int x, int y) {
 		xpos = x;
@@ -20,38 +19,22 @@ public:
 	}
 	void update() override {
 	}
-	void move_up(int y_component) {
-		int counter = 0;
-		while (counter < y_component) {
-			ypos++;
-			counter++;
-		}
-	}
-	void move_down(int y_component) {
-		int counter = 0;
-		while (counter < y_component) {
-			ypos--;
-			counter++;
-		}
-	}
-	void move_left(int x_component ) {
-		int counter = 0;
-		while (counter < x_component ) {
-			xpos--;
-			counter++;
-		}
-	}
-	void move_right(int x_component) {
-		int counter = 0;
-		while (counter < x_component) {
-			xpos++;
-			counter++;
-		}
-	}
+	void move_up() { ypos++;}
+
+	void move_down() { ypos--; }
+
+	void move_left() { xpos--; }
+
+	void move_right() {	xpos++;}
+
 	int x() { return xpos; }
+
 	void x(int x) { xpos = x; }
+
 	int y() { return ypos; }
+
 	void y(int y) { ypos = y; }
+
 	void setPos(int x, int y) { xpos = x; ypos = y; }
 
 };
