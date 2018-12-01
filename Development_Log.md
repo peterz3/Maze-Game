@@ -31,4 +31,5 @@ get maze to scale and maybe start working on maze generation algorithms
 * problem solved! I wasn't initlizing a double array correctly which resulted in variables being lost
 * map effectively scaled! there is however a small chunk of the screen being uncolored because of integer division 
 causing for decimal point inaccuracies
-* problem with horizontal movement eing bounded too early
+* problem with horizontal movement being bounded too early
+* changed movement so it converts from map index(in the double array) to pixels on the screen(instead of visa versa)this greatly simplified my code and solved the movement bounding bug
