@@ -23,3 +23,11 @@ started working on getting maze to scale, gtting weird bug where program thinks 
 
 # Next week
 get maze to scale and maybe start working on maze generation algorithms
+
+# 11/31
+
+*solving problem with map_width being reset to 0 for some reason
+*had to learn debugging
+*problem solved! I wasn't initlizing a double array correctly which resulted in variables being lost
+*map effectively scaled! there is however a small chunk of the screen being uncolored because of integer division 
+causing for decimal point inaccuracies
