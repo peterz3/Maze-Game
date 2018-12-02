@@ -33,3 +33,4 @@ get maze to scale and maybe start working on maze generation algorithms
 causing for decimal point inaccuracies
 * problem with horizontal movement being bounded too early
 * changed movement so it converts from map index(in the double array) to pixels on the screen(instead of visa versa)this greatly simplified my code and solved the movement bounding bug
+* added squares that hid remainder of map not filled out with texture squares(due to decimal point cutting)
