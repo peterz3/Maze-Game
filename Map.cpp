@@ -42,6 +42,7 @@ void Map::init() {
 	for (int i = 0; i < map_height; i++) {
 		map[i] = new int[map_width];
 	}
+	generateRemainderRectangles();
 	src.x = 0;
 	src.y = 0;
 	src.w = 32;
@@ -49,9 +50,15 @@ void Map::init() {
 	dest.w = screen_width / map_width;
 	dest.h = screen_height / map_height;
 	dest.x = dest.y = 0;
+
 	for (int row = 0; row < map_height; row++) {
 		for (int col = 0; col < map_width; col++) {
-			map[row][col] = 0;
+			if (row == 5) {
+				map[row][col] = 1;
+			}
+			else {
+				map[row][col] = 0;
+			}
 		}
 	}
 }
@@ -88,6 +95,21 @@ void Map::DrawMap() {
 			}
 		}
 	}
+	TextureManager::Draw(grass, src, remainder_height);
+	TextureManager::Draw(grass, src, remainder_width);
+}
+
+void Map::generateRemainderRectangles() {
+	int width_scaler = 1250 / map_width;
+	int height_scaler = 800 / map_height;
+	remainder_height.w = 1250;
+	remainder_height.h = 800 - (height_scaler * map_height);
+	remainder_height.x = 0;
+	remainder_height.y = 800 - remainder_height.h;
+	remainder_width.w = 1250 - (width_scaler * map_width);
+	remainder_width.h = 800 - remainder_height.h;
+	remainder_width.y = 0;
+	remainder_width.x = 1250 - remainder_width.w;
 }
 int Map::getVal(int row, int column) { 
 	std::cout << row << std::endl;

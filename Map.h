@@ -10,6 +10,7 @@ public:
 	int getWidth();
 	int getDestRectHeight();
 	int getDestRectWidth();
+	void generateRemainderRectangles();
 	int getVal(int row, int column);
 	void init();
 	const int screen_width = 1250;
@@ -17,6 +18,8 @@ public:
 private:
 	SDL_Rect dest;
 	SDL_Rect src;
+	SDL_Rect remainder_width;
+	SDL_Rect remainder_height;
 	SDL_Texture* dirt;
 	SDL_Texture* grass;
 	SDL_Texture* water;
