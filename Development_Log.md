@@ -23,3 +23,14 @@ started working on getting maze to scale, gtting weird bug where program thinks 
 
 # Next week
 get maze to scale and maybe start working on maze generation algorithms
+
+# 11/31
+
+* solving problem with map_width being reset to 0 for some reason
+* had to learn debugging
+* problem solved! I wasn't initlizing a double array correctly which resulted in variables being lost
+* map effectively scaled! there is however a small chunk of the screen being uncolored because of integer division 
+causing for decimal point inaccuracies
+* problem with horizontal movement being bounded too early
+* changed movement so it converts from map index(in the double array) to pixels on the screen(instead of visa versa)this greatly simplified my code and solved the movement bounding bug
+* added squares that hid remainder of map not filled out with texture squares(due to decimal point cutting)
