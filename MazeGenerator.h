@@ -27,51 +27,47 @@ public:
 	void RecursiveBackTracker(int x, int y) {
 		visitArr[x][y] = true;
 		std::vector<Direction> viableDirections;
-		std::cout << x;
-		std::cout << y;
-		std::cout << height;
-		std::cout << width;
-		if (y > 0) {
-			if (visitArr[x][y - 1] == false) {
-				std::cout << "vr giergw";
-				viableDirections.push_back(Direction::LEFT);
-			}
-		}
-		if (x < height - 1) {
-			if (visitArr[x + 1][y] == false) {
-				viableDirections.push_back(Direction::DOWN);
-			}
-		}
-		if (y < width - 1) {
-			if (visitArr[x][y + 1] == false) {
-				viableDirections.push_back(Direction::RIGHT);
-			}
-		}
-		if (x > 0) {
-			if (visitArr[x - 1][y] == false) {
-				viableDirections.push_back(Direction::UP);
-			}
-		}
+		viableDirections.push_back(Direction::UP);
+		viableDirections.push_back(Direction::LEFT);
+		viableDirections.push_back(Direction::RIGHT);
+		viableDirections.push_back(Direction::DOWN);
 		while (!viableDirections.empty()) {
 			int rand = std::rand() % viableDirections.size();
 			Direction dir = viableDirections[rand];
 			viableDirections.erase(viableDirections.begin() + rand);
 			switch (dir) {
 			case 1:
-				Map[2 * x - 1][2 * y] = 0;
-				RecursiveBackTracker(x - 1, y);
+				if (x > 0) {
+					if (visitArr[x - 1][y] == false) {
+						Map[2 * x - 1][2 * y] = 0;
+						RecursiveBackTracker(x - 1, y);
+					}
+				}
 				break;
 			case 2:
-				Map[2 * x][2 * y + 1] = 0;
-				RecursiveBackTracker(x, y + 1);
+				if (y < width - 1) {
+					if (visitArr[x][y + 1] == false) {
+						Map[2 * x][2 * y + 1] = 0;
+						RecursiveBackTracker(x, y + 1);
+					}
+				}
 				break;
 			case 3:
-				Map[2 * x + 1][2 * y] = 0;
-				RecursiveBackTracker(x + 1, y);
+				if (x < height - 1) {
+					if (visitArr[x + 1][y] == false) {
+						Map[2 * x + 1][2 * y] = 0;
+						RecursiveBackTracker(x + 1, y);
+					}
+				}
 				break;
 			case 4:
-				Map[2 * x][2 * y - 1] = 0;
-				RecursiveBackTracker(x, y - 1);
+				if (y > 0) {
+					if (visitArr[x][y - 1] == false) {
+						Map[2 * x][2 * y - 1] = 0;
+						RecursiveBackTracker(x, y - 1);
+					}
+				}
+				break;
 			default:
 				break;
 			}
