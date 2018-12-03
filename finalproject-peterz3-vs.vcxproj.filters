@@ -27,28 +27,34 @@
     <ClCompile Include="..\..\..\Downloads\BirchEngine-master\BirchEngine-master\BirchEngine\Src\ECS\ECS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MazeGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerComponent.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Downloads\BirchEngine-master\BirchEngine-master\BirchEngine\Src\ECS\ECS.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PositionComponent.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="KeyBoardController.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Downloads\BirchEngine-master\BirchEngine-master\BirchEngine\Src\ECS\ECS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MazeGenerator.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 
 #include "Map.h"
 #include "TextureManager.h"
+#include "MazeGenerator.h"
 
 int lvl1[20][25] = {
 	{0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -34,10 +35,14 @@ Map::Map() {
 
 }
 void Map::init() {
+	int x;
+	int y;
 	std::cout << "please enter map height ";
-	std::cin >> map_height;
+	std::cin >> x;
+	map_height = x*2 - 1;
 	std::cout << "please enter map width ";
-	std::cin >> map_width;
+	std::cin >> y;
+	map_width = y * 2 - 1;
 	map = new int*[map_height];
 	for (int i = 0; i < map_height; i++) {
 		map[i] = new int[map_width];
@@ -53,7 +58,7 @@ void Map::init() {
 
 	for (int row = 0; row < map_height; row++) {
 		for (int col = 0; col < map_width; col++) {
-			if (row == 5) {
+			if(row%2 == 1 || col%2 == 1){
 				map[row][col] = 1;
 			}
 			else {
@@ -61,6 +66,9 @@ void Map::init() {
 			}
 		}
 	}
+	MazeGenerator  *MG = new MazeGenerator(map, map_height, map_width);
+	map = MG->GenerateMaze();
+
 }
 
 void Map::LoadMap(int arr[20][25]) {
@@ -111,12 +119,13 @@ void Map::generateRemainderRectangles() {
 	remainder_width.y = 0;
 	remainder_width.x = 1250 - remainder_width.w;
 }
-int Map::getVal(int row, int column) { 
+int Map::getVal(int row, int column) {
 	std::cout << row << std::endl;
 	std::cout << column << std::endl;
 
 	std::cout << map[row][column];
-	return map[row][column]; }
+	return map[row][column];
+}
 int Map::getHeight() { return map_height; }
 int Map::getWidth() { return map_width; }
 int Map::getDestRectHeight() { return dest.h; }

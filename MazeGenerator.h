@@ -1,0 +1,85 @@
+#pragma once
+#include <vector>
+#include <cstdlib>
+#include <iostream>
+
+class MazeGenerator {
+	enum Direction { UP = 1, RIGHT = 2, DOWN = 3, LEFT = 4 };
+public:
+	MazeGenerator(int **MapArray, int map_height, int map_width) {
+		height = (map_height + 1) / 2;
+		width = (map_width + 1) / 2;
+		Map = MapArray;
+		visitArr = new bool *[height];
+		for (int i = 0; i < height; i++) {
+			visitArr[i] = new bool[width];
+		}
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				visitArr[i][j] = false;
+			}
+		}
+	}
+	int** GenerateMaze() {
+		RecursiveBackTracker(0, 0);
+		return Map;
+	}
+	void RecursiveBackTracker(int x, int y) {
+		visitArr[x][y] = true;
+		std::vector<Direction> viableDirections;
+		std::cout << x;
+		std::cout << y;
+		std::cout << height;
+		std::cout << width;
+		if (y > 0) {
+			if (visitArr[x][y - 1] == false) {
+				std::cout << "vr giergw";
+				viableDirections.push_back(Direction::LEFT);
+			}
+		}
+		if (x < height - 1) {
+			if (visitArr[x + 1][y] == false) {
+				viableDirections.push_back(Direction::DOWN);
+			}
+		}
+		if (y < width - 1) {
+			if (visitArr[x][y + 1] == false) {
+				viableDirections.push_back(Direction::RIGHT);
+			}
+		}
+		if (x > 0) {
+			if (visitArr[x - 1][y] == false) {
+				viableDirections.push_back(Direction::UP);
+			}
+		}
+		while (!viableDirections.empty()) {
+			int rand = std::rand() % viableDirections.size();
+			Direction dir = viableDirections[rand];
+			viableDirections.erase(viableDirections.begin() + rand);
+			switch (dir) {
+			case 1:
+				Map[2 * x - 1][2 * y] = 0;
+				RecursiveBackTracker(x - 1, y);
+				break;
+			case 2:
+				Map[2 * x][2 * y + 1] = 0;
+				RecursiveBackTracker(x, y + 1);
+				break;
+			case 3:
+				Map[2 * x + 1][2 * y] = 0;
+				RecursiveBackTracker(x + 1, y);
+				break;
+			case 4:
+				Map[2 * x][2 * y - 1] = 0;
+				RecursiveBackTracker(x, y - 1);
+			default:
+				break;
+			}
+		}
+	}
+private:
+	int **Map;
+	bool **visitArr;
+	int height;
+	int width;
+};
