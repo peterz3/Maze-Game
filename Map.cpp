@@ -29,17 +29,20 @@ Map::Map() {
 	dirt = TextureManager::LoadTexture("dirt.png");
 	grass = TextureManager::LoadTexture("grass.png");
 	water = TextureManager::LoadTexture("water.png");
-
-
-	//LoadMap(lvl1);
-
+}
+Map::~Map() {
+	delete generator;
+	for (int i = 0; i < map_height; i++) {
+		delete map[i];
+	}
+	delete map;
 }
 void Map::init() {
 	int x;
 	int y;
 	std::cout << "please enter map height ";
 	std::cin >> x;
-	map_height = x*2 - 1;
+	map_height = x * 2 - 1;
 	std::cout << "please enter map width ";
 	std::cin >> y;
 	map_width = y * 2 - 1;
@@ -58,7 +61,7 @@ void Map::init() {
 
 	for (int row = 0; row < map_height; row++) {
 		for (int col = 0; col < map_width; col++) {
-			if(row%2 == 1 || col%2 == 1){
+			if (row % 2 == 1 || col % 2 == 1) {
 				map[row][col] = 1;
 			}
 			else {
@@ -66,22 +69,12 @@ void Map::init() {
 			}
 		}
 	}
-	MazeGenerator  *MG = new MazeGenerator(map, map_height, map_width);
-	map = MG->GenerateMaze();
+	generator = new MazeGenerator(map, map_height, map_width);
+	map = generator->GenerateMaze();
 
-}
-
-void Map::LoadMap(int arr[20][25]) {
-	for (int row = 0; row < 20; row++) {
-		for (int column = 0; column < 25; column++) {
-			map[row][column] = arr[row][column];
-		}
-	}
 }
 
 void Map::DrawMap() {
-	//std::cout << map_height;
-	//std::cout << map_height;
 	int type = 0;
 	for (int row = 0; row < map_height; row++) {
 		for (int column = 0; column < map_width; column++) {

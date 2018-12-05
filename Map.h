@@ -1,10 +1,11 @@
 #pragma once
 #include "SDL.h"
+#include "MazeGenerator.h"
 
 class Map {
 public:
 	Map();
-	void LoadMap(int arr[20][25]);
+	~Map();
 	void DrawMap();
 	int getHeight();
 	int getWidth();
@@ -23,6 +24,7 @@ private:
 	SDL_Texture* dirt;
 	SDL_Texture* grass;
 	SDL_Texture* water;
+	MazeGenerator *generator;
 	int **map;
 	int map_width;
 	int map_height;
