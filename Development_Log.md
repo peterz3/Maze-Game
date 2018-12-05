@@ -24,7 +24,7 @@ started working on getting maze to scale, gtting weird bug where program thinks 
 # Next week
 get maze to scale and maybe start working on maze generation algorithms
 
-# 11/31
+# 12/1 -12/2
 
 * solving problem with map_width being reset to 0 for some reason
 * had to learn debugging
@@ -34,3 +34,11 @@ causing for decimal point inaccuracies
 * problem with horizontal movement being bounded too early
 * changed movement so it converts from map index(in the double array) to pixels on the screen(instead of visa versa)this greatly simplified my code and solved the movement bounding bug
 * added squares that hid remainder of map not filled out with texture squares(due to decimal point cutting)
+
+# 12/3 - 12/5
+
+* created maze generator class which holds boolean array for cells
+* converted between boolean array to physical maze, I had to scale maze size by 4 in order to change maze strcture to empty cells surrounded by walls(like a grid) from just a map of walls and spaces
+* implemented maze generating algorithm using recursion
+* implemented maze generator cpp
+* improved clean function to delete generated arrays
