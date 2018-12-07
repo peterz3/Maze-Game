@@ -42,3 +42,10 @@ causing for decimal point inaccuracies
 * implemented maze generating algorithm using recursion
 * implemented maze generator cpp
 * improved clean function to delete generated arrays
+
+# 12/6 - 12/7
+
+* changed texture names
+* implemented depth first maze generation algorithm
+* tried fixing overflow error
+* implemented finishing block texture and made it so game quits when you hit it
