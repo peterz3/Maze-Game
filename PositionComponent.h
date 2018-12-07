@@ -19,13 +19,13 @@ public:
 	}
 	void update() override {
 	}
-	void move_up() { ypos++;}
+	void move_up() { ypos++; }
 
 	void move_down() { ypos--; }
 
 	void move_left() { xpos--; }
 
-	void move_right() {	xpos++;}
+	void move_right() { xpos++; }
 
 	int x() { return xpos; }
 
@@ -36,5 +36,4 @@ public:
 	void y(int y) { ypos = y; }
 
 	void setPos(int x, int y) { xpos = x; ypos = y; }
-
 };

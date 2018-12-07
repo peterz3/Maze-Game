@@ -42,7 +42,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	}
 	map = new Map();
 	map->init();
-	playerEntity.addComponent<PositionComponent>(0,0);
+	playerEntity.addComponent<PositionComponent>(0, 0);
 	playerEntity.addComponent<PlayerComponent>("knight.png", map->getDestRectHeight(), map->getDestRectWidth());
 	playerEntity.addComponent<KeyboardController>(map);
 }

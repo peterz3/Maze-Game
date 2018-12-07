@@ -11,7 +11,7 @@ public:
 	KeyboardController(Map *newmap) {
 		map = newmap;
 	}
-	bool validPosCheck(int row, int col) {
+	bool ValidPosCheck(int row, int col) {
 		return (map->getVal(row , col )) != 1;
 	}
 
@@ -21,26 +21,30 @@ public:
 		y_movement = map->getDestRectHeight();
 	}
 	void update() override {
+		if (WinCheck()) {
+			Game::event.type = SDL_QUIT;
+			std::cout << "YOU WIN CONGRATS" << std::endl;
+		}
 		if (Game::event.type == SDL_KEYDOWN)
 		{
 			switch (Game::event.key.keysym.sym) {
 			case SDLK_w:
-				if (position->y() > 0 && validPosCheck(position->y() - 1, position->x())) {
+				if (position->y() > 0 && ValidPosCheck(position->y() - 1, position->x())) {
 					position->move_down();
 				}
 				break;
 			case SDLK_s:
-				if ((position->y() < map->getHeight() - 1) && validPosCheck(position->y() + 1, position->x())) {
+				if ((position->y() < map->getHeight() - 1) && ValidPosCheck(position->y() + 1, position->x())) {
 					position->move_up();
 				}
 				break;
 			case SDLK_a:
-				if (position->x() > 0 && validPosCheck(position->y(), position->x() - 1)) {
+				if (position->x() > 0 && ValidPosCheck(position->y(), position->x() - 1)) {
 					position->move_left();
 				}
 				break;
 			case SDLK_d:
-				if ((position->x() < map->getWidth() - 1) && validPosCheck(position->y(), position->x() + 1)) {
+				if ((position->x() < map->getWidth() - 1) && ValidPosCheck(position->y(), position->x() + 1)) {
 					position->move_right();
 				}
 				break;
@@ -48,6 +52,9 @@ public:
 				break;
 			}
 		}
+	}
+	bool WinCheck() {
+		return map->getVal(position->x(), position->y()) == 2;
 	}
 private:
 	int x_movement;

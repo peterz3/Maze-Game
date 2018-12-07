@@ -21,9 +21,9 @@ private:
 	SDL_Rect src;
 	SDL_Rect remainder_width;
 	SDL_Rect remainder_height;
-	SDL_Texture* dirt;
-	SDL_Texture* grass;
-	SDL_Texture* water;
+	SDL_Texture* wall;
+	SDL_Texture* space;
+	SDL_Texture* finish;
 	MazeGenerator *generator;
 	int **map;
 	int map_width;

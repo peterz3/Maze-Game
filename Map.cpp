@@ -4,31 +4,11 @@
 #include "TextureManager.h"
 #include "MazeGenerator.h"
 
-int lvl1[20][25] = {
-	{0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
-};
 Map::Map() {
-	dirt = TextureManager::LoadTexture("dirt.png");
-	grass = TextureManager::LoadTexture("grass.png");
-	water = TextureManager::LoadTexture("water.png");
+	wall = TextureManager::LoadTexture("wall.png");
+	space = TextureManager::LoadTexture("space.png");
+	finish = TextureManager::LoadTexture("finish.png");
+
 }
 Map::~Map() {
 	delete generator;
@@ -70,8 +50,9 @@ void Map::init() {
 		}
 	}
 	generator = new MazeGenerator(map, map_height, map_width);
-	map = generator->GenerateMaze();
-
+	//map = generator->GenerateBackTrackMaze();
+	map = generator->GenerateDepthFirstMaze();
+	map[map_height - 1][map_width - 1] = 2;
 }
 
 void Map::DrawMap() {
@@ -83,21 +64,21 @@ void Map::DrawMap() {
 			dest.y = (row * dest.h);
 			switch (type) {
 			case 0:
-				TextureManager::Draw(water, src, dest);
+				TextureManager::Draw(space, src, dest);
 				break;
 			case 1:
-				TextureManager::Draw(grass, src, dest);
+				TextureManager::Draw(wall, src, dest);
 				break;
 			case 2:
-				TextureManager::Draw(dirt, src, dest);
+				TextureManager::Draw(finish, src, dest);
 				break;
 			default:
 				break;
 			}
 		}
 	}
-	TextureManager::Draw(grass, src, remainder_height);
-	TextureManager::Draw(grass, src, remainder_width);
+	TextureManager::Draw(wall, src, remainder_height);
+	TextureManager::Draw(wall, src, remainder_width);
 }
 
 void Map::generateRemainderRectangles() {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MazeGenerator.h"
- 
+
 MazeGenerator::MazeGenerator(int **MapArray, int map_height, int map_width) {
 	height = (map_height + 1) / 2;
 	width = (map_width + 1) / 2;
@@ -21,6 +21,10 @@ MazeGenerator::~MazeGenerator() {
 		delete visitArr[i];
 	}
 	delete visitArr;
+}
+
+void MazeGenerator::RecursiveDepthFirst() {
+
 }
 void  MazeGenerator::RecursiveBackTracker(int x, int y) {
 	visitArr[x][y] = true;
