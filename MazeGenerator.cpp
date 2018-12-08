@@ -23,10 +23,8 @@ MazeGenerator::~MazeGenerator() {
 	delete visitArr;
 }
 
-void MazeGenerator::RecursiveDepthFirst() {
-
-}
-void  MazeGenerator::RecursiveBackTracker(int x, int y) {
+void  MazeGenerator::RecursiveBackTracker(int x, int y) 
+{
 	visitArr[x][y] = true;
 	std::vector<Direction> viableDirections;
 	viableDirections.push_back(Direction::UP);

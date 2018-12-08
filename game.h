@@ -27,10 +27,10 @@ public:
 
 	static SDL_Event event;
 	static SDL_Renderer *renderer;
+	static bool is_running;
 
 private:
 	Map* map;
 	int count = 0;
-	bool is_running;
 	SDL_Window *window;
 };

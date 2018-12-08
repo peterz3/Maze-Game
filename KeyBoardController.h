@@ -21,10 +21,6 @@ public:
 		y_movement = map->getDestRectHeight();
 	}
 	void update() override {
-		if (WinCheck()) {
-			Game::event.type = SDL_QUIT;
-			std::cout << "YOU WIN CONGRATS" << std::endl;
-		}
 		if (Game::event.type == SDL_KEYDOWN)
 		{
 			switch (Game::event.key.keysym.sym) {
@@ -35,6 +31,11 @@ public:
 				break;
 			case SDLK_s:
 				if ((position->y() < map->getHeight() - 1) && ValidPosCheck(position->y() + 1, position->x())) {
+					if (WinCheck(position->y() + 1, position->x() )) {
+						position->move_up();
+						Game::is_running = false;
+						std::cout << "YOU WIN CONGRATS" << std::endl;
+					}
 					position->move_up();
 				}
 				break;
@@ -45,6 +46,12 @@ public:
 				break;
 			case SDLK_d:
 				if ((position->x() < map->getWidth() - 1) && ValidPosCheck(position->y(), position->x() + 1)) {
+					if (WinCheck(position->y() , position->x() + 1)) {
+						position->move_right();
+						Game::is_running = false;
+						std::cout << "YOU WIN CONGRATS" << std::endl;
+						break;
+					}
 					position->move_right();
 				}
 				break;
@@ -53,8 +60,8 @@ public:
 			}
 		}
 	}
-	bool WinCheck() {
-		return map->getVal(position->x(), position->y()) == 2;
+	bool WinCheck(int x , int y) {
+		return map->getVal(x, y) == 2;
 	}
 private:
 	int x_movement;

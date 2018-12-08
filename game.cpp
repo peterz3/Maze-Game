@@ -17,6 +17,7 @@ auto& playerEntity(manager.addEntity());
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
+bool Game::is_running = true;
 
 
 Game::Game() {
@@ -51,6 +52,7 @@ void Game::handleEvents() {
 	switch (event.type)
 	{
 	case SDL_QUIT:
+		std::cout << "close";
 		is_running = false;
 		break;
 	default:

@@ -13,13 +13,12 @@ public:
 		return Map;
 	}
 	int** GenerateDepthFirstMaze() {
-		int init_x = std::rand() % width;
-		int init_y = std::rand() % height;
+		int init_x = std::rand() % height;
+		int init_y = std::rand() % width;
 		RecursiveBackTracker(init_x, init_y);
 		return Map;
 	}
 	void RecursiveBackTracker(int x, int y);
-	void RecursiveDepthFirst();
 private:
 	int **Map;
 	bool **visitArr;

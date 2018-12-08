@@ -96,8 +96,6 @@ void Map::generateRemainderRectangles() {
 int Map::getVal(int row, int column) {
 	std::cout << row << std::endl;
 	std::cout << column << std::endl;
-
-	std::cout << map[row][column];
 	return map[row][column];
 }
 int Map::getHeight() { return map_height; }
