@@ -188,11 +188,12 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="maze_solver.cpp" />
     <ClCompile Include="src\ECS.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
-    <ClCompile Include="src\MazeGenerator.cpp" />
+    <ClCompile Include="src\maze_generator.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxButton.cpp" />
@@ -204,14 +205,15 @@
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp" />
-    <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\texture_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="maze_solver.h" />
     <ClInclude Include="src\ECS.h" />
     <ClInclude Include="src\game.h" />
-    <ClInclude Include="src\KeyBoardController.h" />
-    <ClInclude Include="src\Map.h" />
-    <ClInclude Include="src\MazeGenerator.h" />
+    <ClInclude Include="src\keyboard_controller.h" />
+    <ClInclude Include="src\map.h" />
+    <ClInclude Include="src\maze_generator.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxButton.h" />
@@ -224,9 +226,9 @@
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxSlider.h" />
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.h" />
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
-    <ClInclude Include="src\PlayerComponent.h" />
-    <ClInclude Include="src\PositionComponent.h" />
-    <ClInclude Include="src\TextureManager.h" />
+    <ClInclude Include="src\player_component.h" />
+    <ClInclude Include="src\position_component.h" />
+    <ClInclude Include="src\texture_manager.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

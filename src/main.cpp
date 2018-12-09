@@ -9,8 +9,6 @@
 
 Game *game = nullptr;
 int main(int argc, char *argv[]) {
-	ofSetupOpenGL(1024, 768, OF_WINDOW);
-	ofRunApp(new ofApp());
 
 	const int fps = 60;
 	const int framedelay = 100 / fps;

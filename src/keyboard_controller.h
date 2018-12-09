@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ECS.h"
-#include "PositionComponent.h"
+#include "position_component.h"
 #include "game.h"
 class KeyboardController : public Component {
 public:
@@ -55,6 +55,8 @@ public:
 					position->move_right();
 				}
 				break;
+			case SDLK_p:
+			
 			default:
 				break;
 			}

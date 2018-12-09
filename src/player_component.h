@@ -1,9 +1,9 @@
 #pragma once
 
 #include "SDL.h"
-#include "PositionComponent.h"
+#include "position_component.h"
 #include "ECS.h"
-#include "TextureManager.h"
+#include "texture_manager.h"
 #include "game.h"
 class PlayerComponent : public Component {
 private:

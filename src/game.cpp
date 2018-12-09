@@ -1,11 +1,11 @@
 #pragma once
 
 #include "game.h"
-#include "Map.h"
-#include "PositionComponent.h"
-#include "PlayerComponent.h"
+#include "map.h"
+#include "position_component.h"
+#include "player_component.h"
 #include "ECS.h"
-#include "KeyBoardController.h"
+#include "keyboard_controller.h"
 #include <iostream>
 
 SDL_Texture *image;

@@ -1,11 +1,7 @@
 #pragma once
-#include "SDL.h"
-
-#pragma once
-
 
 #include "SDL.h"
-#include "Map.h"
+#include "map.h"
 #include <stdio.h>
 #include <iostream>
 

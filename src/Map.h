@@ -1,6 +1,6 @@
 #pragma once
 #include "SDL.h"
-#include "MazeGenerator.h"
+#include "maze_generator.h"
 
 class Map {
 public:
@@ -30,6 +30,7 @@ private:
 	int map_height;
 
 };
+
 
 
 

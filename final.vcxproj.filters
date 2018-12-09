@@ -46,10 +46,13 @@
     <ClCompile Include="src\Map.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\MazeGenerator.cpp">
+    <ClCompile Include="maze_solver.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureManager.cpp">
+    <ClCompile Include="src\texture_manager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maze_generator.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,22 +113,25 @@
     <ClInclude Include="src\game.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\KeyBoardController.h">
+    <ClInclude Include="maze_solver.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Map.h">
+    <ClInclude Include="src\texture_manager.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\MazeGenerator.h">
+    <ClInclude Include="src\position_component.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlayerComponent.h">
+    <ClInclude Include="src\player_component.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\PositionComponent.h">
+    <ClInclude Include="src\maze_generator.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\TextureManager.h">
+    <ClInclude Include="src\keyboard_controller.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

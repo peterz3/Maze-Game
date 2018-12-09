@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Map.h"
-#include "TextureManager.h"
-#include "MazeGenerator.h"
+#include "texture_manager.h"
+#include "maze_generator.h"
+#include "map.h"
 
 
 Map::Map() {

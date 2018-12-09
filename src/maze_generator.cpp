@@ -1,6 +1,6 @@
 #pragma once
 
-#include "MazeGenerator.h"
+#include "maze_generator.h"
 
 MazeGenerator::MazeGenerator(int **MapArray, int map_height, int map_width) {
 	height = (map_height + 1) / 2;

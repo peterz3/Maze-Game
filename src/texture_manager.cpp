@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TextureManager.h"
+#include "texture_manager.h"
 #include "game.h"
 #include "SDL_image.h"
 #include <iostream>
