@@ -55,6 +55,9 @@
     <ClCompile Include="src\maze_solver.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\tests.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -131,14 +134,17 @@
     <ClInclude Include="src\map.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\tests\catch.hpp">
+    <ClInclude Include="src\maze_solver.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\maze_solver.h">
+    <ClInclude Include="src\catch.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

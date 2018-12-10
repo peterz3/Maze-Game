@@ -205,9 +205,11 @@
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxSlider.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxSliderGroup.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="src\tests.cpp" />
     <ClCompile Include="src\texture_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\catch.hpp" />
     <ClInclude Include="src\ECS.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\keyboard_controller.h" />
@@ -228,7 +230,6 @@
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="src\player_component.h" />
     <ClInclude Include="src\position_component.h" />
-    <ClInclude Include="src\tests\catch.hpp" />
     <ClInclude Include="src\texture_manager.h" />
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +243,9 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ProjectExtensions>

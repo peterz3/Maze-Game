@@ -22,6 +22,7 @@ void MazeSolver::SolveMaze() {
 	if (map->GetVal(0, 1) != 1) {
 		if (RecursiveSolver(0, 1)) { map->ChangeVal(0, 1, 3); }
 	}
+	map->ChangeVal(maze_height - 1, maze_width - 1, 2);
 }
 bool MazeSolver::RecursiveSolver(int x, int y) {
 	visit_arr[x][y] = true;

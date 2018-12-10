@@ -3,8 +3,9 @@
 #include "maze_generator.h"
 #include "ECS.h"
 
-class Map :  public Component{
+class Map : public Component {
 public:
+	Map(int height, int width);
 	Map();
 	~Map();
 	void Draw() override;

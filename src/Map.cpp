@@ -10,7 +10,16 @@ Map::Map() {
 	space = TextureManager::LoadTexture("space.png");
 	finish = TextureManager::LoadTexture("finish.png");
 	solution = TextureManager::LoadTexture("solution.png");
-
+	map_height = 0;
+	map_width = 0;
+}
+Map::Map(int height, int width) {
+	wall = TextureManager::LoadTexture("wall.png");
+	space = TextureManager::LoadTexture("space.png");
+	finish = TextureManager::LoadTexture("finish.png");
+	solution = TextureManager::LoadTexture("solution.png");
+	map_height = height;
+	map_width = width;
 }
 Map::~Map() {
 	delete generator;
@@ -20,14 +29,30 @@ Map::~Map() {
 	delete map;
 }
 void Map::Init() {
-	int x;
-	int y;
-	std::cout << "please enter map height ";
-	std::cin >> x;
-	map_height = x * 2 - 1;
-	std::cout << "please enter map width ";
-	std::cin >> y;
-	map_width = y * 2 - 1;
+	if (map_height == 0 && map_width == 0) {
+		int x;
+		int y;
+		std::cout << "please enter a height between 2 and 100" << std::endl;
+		while (!(std::cin >> x) || x > 100 || x < 2) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input.  Try again: ";
+		}
+		map_height = x * 2 - 1;
+		std::cout << "please enter map width between 2 and 100" << std::endl;
+		while (!(std::cin >> y) || y > 100 || y < 2) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid input.  Try again: ";
+		}
+		map_width = y * 2 - 1;
+	
+	}
+	else {
+		map_height = 2 * map_height - 1;
+		map_width = 2 * map_width - 1; 
+	}
+
 	map = new int*[map_height];
 	for (int i = 0; i < map_height; i++) {
 		map[i] = new int[map_width];
