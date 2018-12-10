@@ -10,18 +10,18 @@ public:
 	~MazeGenerator();
 	int** GenerateBackTrackMaze() {
 		RecursiveBackTracker(0, 0);
-		return Map;
+		return map;
 	}
 	int** GenerateDepthFirstMaze() {
 		int init_x = std::rand() % height;
 		int init_y = std::rand() % width;
 		RecursiveBackTracker(init_x, init_y);
-		return Map;
+		return map;
 	}
 	void RecursiveBackTracker(int x, int y);
 private:
-	int **Map;
-	bool **visitArr;
+	int **map;
+	bool **visit_arr;
 	int height;
 	int width;
 };

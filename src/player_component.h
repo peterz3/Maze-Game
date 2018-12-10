@@ -32,6 +32,7 @@ public:
 	void Update() override {
 		destRect.x = width * position->x();
 		destRect.y = height * position->y();
+		
 
 	}
 	void Draw() override {

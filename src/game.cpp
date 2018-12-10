@@ -6,6 +6,7 @@
 #include "player_component.h"
 #include "ECS.h"
 #include "keyboard_controller.h"
+#include "maze_solver.h"
 #include <iostream>
 
 SDL_Texture *image;
@@ -45,6 +46,7 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 	playerEntity.AddComponent<PositionComponent>(0, 0);
 	playerEntity.AddComponent<PlayerComponent>("knight.png");
 	playerEntity.AddComponent<KeyboardController>();
+	playerEntity.AddComponent<MazeSolver>();
 }
 void Game::HandleEvents() {
 	SDL_PollEvent(&event);

@@ -46,13 +46,13 @@
     <ClCompile Include="src\Map.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="maze_solver.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\texture_manager.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\maze_generator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maze_solver.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,9 +113,6 @@
     <ClInclude Include="src\game.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="maze_solver.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\texture_manager.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -132,6 +129,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\map.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tests\catch.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\maze_solver.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

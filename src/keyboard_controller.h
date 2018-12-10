@@ -3,10 +3,13 @@
 #include "ECS.h"
 #include "position_component.h"
 #include "game.h"
+#include "maze_solver.h"
+
 class KeyboardController : public Component {
 public:
 	PositionComponent *position;
 	Map *map;
+	MazeSolver *solver;
 
 	KeyboardController() {
 	}
@@ -56,7 +59,9 @@ public:
 				}
 				break;
 			case SDLK_p:
-			
+				solver = &entity->GetComponent<MazeSolver>();
+				solver->SolveMaze();
+				break;
 			default:
 				break;
 			}

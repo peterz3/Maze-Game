@@ -14,6 +14,7 @@ public:
 	int GetDestRectWidth();
 	void GenerateRemainderRectangles();
 	int GetVal(int row, int column);
+	void ChangeVal(int row, int col, int val);
 	void Init() override;
 	const int screen_width = 1000;
 	const int screen_height = 600;
@@ -25,6 +26,7 @@ private:
 	SDL_Texture* wall;
 	SDL_Texture* space;
 	SDL_Texture* finish;
+	SDL_Texture* solution;
 	MazeGenerator *generator;
 	int **map;
 	int map_width;

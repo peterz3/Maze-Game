@@ -188,12 +188,12 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="maze_solver.cpp" />
     <ClCompile Include="src\ECS.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\maze_generator.cpp" />
+    <ClCompile Include="src\maze_solver.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxButton.cpp" />
@@ -208,12 +208,12 @@
     <ClCompile Include="src\texture_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="maze_solver.h" />
     <ClInclude Include="src\ECS.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\keyboard_controller.h" />
     <ClInclude Include="src\map.h" />
     <ClInclude Include="src\maze_generator.h" />
+    <ClInclude Include="src\maze_solver.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxButton.h" />
@@ -228,6 +228,7 @@
     <ClInclude Include="..\..\..\Desktop\of_v0.10.0_vs2017_release\addons\ofxGui\src\ofxToggle.h" />
     <ClInclude Include="src\player_component.h" />
     <ClInclude Include="src\position_component.h" />
+    <ClInclude Include="src\tests\catch.hpp" />
     <ClInclude Include="src\texture_manager.h" />
   </ItemGroup>
   <ItemGroup>
