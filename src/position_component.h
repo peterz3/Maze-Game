@@ -17,15 +17,15 @@ public:
 		xpos = x;
 		ypos = y;
 	}
-	void update() override {
+	void Update() override {
 	}
-	void move_up() { ypos++; }
+	void Move_Up() { ypos++; }
 
-	void move_down() { ypos--; }
+	void Move_Down() { ypos--; }
 
-	void move_left() { xpos--; }
+	void Move_Left() { xpos--; }
 
-	void move_right() { xpos++; }
+	void Move_Right() { xpos++; }
 
 	int x() { return xpos; }
 
@@ -35,5 +35,5 @@ public:
 
 	void y(int y) { ypos = y; }
 
-	void setPos(int x, int y) { xpos = x; ypos = y; }
+	void SetPos(int x, int y) { xpos = x; ypos = y; }
 };

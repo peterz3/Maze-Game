@@ -14,11 +14,11 @@ Map::Map() {
 Map::~Map() {
 	delete generator;
 	for (int i = 0; i < map_height; i++) {
-		delete map[i];
+		delete map[i];			
 	}
 	delete map;
 }
-void Map::init() {
+void Map::Init() {
 	int x;
 	int y;
 	std::cout << "please enter map height ";
@@ -31,7 +31,7 @@ void Map::init() {
 	for (int i = 0; i < map_height; i++) {
 		map[i] = new int[map_width];
 	}
-	generateRemainderRectangles();
+	GenerateRemainderRectangles();
 	src.x = 0;
 	src.y = 0;
 	src.w = 32;
@@ -56,7 +56,7 @@ void Map::init() {
 	map[map_height - 1][map_width - 1] = 2;
 }
 
-void Map::DrawMap() {
+void Map::Draw() {
 	int type = 0;
 	for (int row = 0; row < map_height; row++) {
 		for (int column = 0; column < map_width; column++) {
@@ -82,7 +82,7 @@ void Map::DrawMap() {
 	TextureManager::Draw(wall, src, remainder_width);
 }
 
-void Map::generateRemainderRectangles() {
+void Map::GenerateRemainderRectangles() {
 	int width_scaler = screen_width / map_width;
 	int height_scaler = screen_height / map_height;
 	remainder_height.w = screen_width;
@@ -94,12 +94,12 @@ void Map::generateRemainderRectangles() {
 	remainder_width.y = 0;
 	remainder_width.x = 1250 - remainder_width.w;
 }
-int Map::getVal(int row, int column) {
+int Map::GetVal(int row, int column) {
 	std::cout << row << std::endl;
 	std::cout << column << std::endl;
 	return map[row][column];
 }
-int Map::getHeight() { return map_height; }
-int Map::getWidth() { return map_width; }
-int Map::getDestRectHeight() { return dest.h; }
-int Map::getDestRectWidth() { return dest.w; }
+int Map::GetHeight() { return map_height; }
+int Map::GetWidth() { return map_width; }
+int Map::GetDestRectHeight() { return dest.h; }
+int Map::GetDestRectWidth() { return dest.w; }

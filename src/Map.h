@@ -1,19 +1,20 @@
 #pragma once
 #include "SDL.h"
 #include "maze_generator.h"
+#include "ECS.h"
 
-class Map {
+class Map :  public Component{
 public:
 	Map();
 	~Map();
-	void DrawMap();
-	int getHeight();
-	int getWidth();
-	int getDestRectHeight();
-	int getDestRectWidth();
-	void generateRemainderRectangles();
-	int getVal(int row, int column);
-	void init();
+	void Draw() override;
+	int GetHeight();
+	int GetWidth();
+	int GetDestRectHeight();
+	int GetDestRectWidth();
+	void GenerateRemainderRectangles();
+	int GetVal(int row, int column);
+	void Init() override;
 	const int screen_width = 1000;
 	const int screen_height = 600;
 private:

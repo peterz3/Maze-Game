@@ -1,7 +1,7 @@
 #include "ECS.h"
 
-void Entity::addGroup(Group mGroup)
+void Entity::AddGroup(Group mGroup)
 {
-	groupBitset[mGroup] = true;
+	group_bitset[mGroup] = true;
 	manager.AddToGroup(this, mGroup);
 }

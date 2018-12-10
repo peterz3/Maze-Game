@@ -8,51 +8,51 @@ public:
 	PositionComponent *position;
 	Map *map;
 
-	KeyboardController(Map *newmap) {
-		map = newmap;
+	KeyboardController() {
 	}
 	bool ValidPosCheck(int row, int col) {
-		return (map->getVal(row , col )) != 1;
+		return (map->GetVal(row , col )) != 1;
 	}
 
-	void init() override {
-		position = &entity->getComponent<PositionComponent>();
-		x_movement = map->getDestRectWidth();
-		y_movement = map->getDestRectHeight();
+	void Init() override {
+		position = &entity->GetComponent<PositionComponent>();
+		map = &entity->GetComponent<Map>();
+		x_movement = map->GetDestRectWidth();
+		y_movement = map->GetDestRectHeight();
 	}
-	void update() override {
+	void Update() override {
 		if (Game::event.type == SDL_KEYDOWN)
 		{
 			switch (Game::event.key.keysym.sym) {
 			case SDLK_w:
 				if (position->y() > 0 && ValidPosCheck(position->y() - 1, position->x())) {
-					position->move_down();
+					position->Move_Down();
 				}
 				break;
 			case SDLK_s:
-				if ((position->y() < map->getHeight() - 1) && ValidPosCheck(position->y() + 1, position->x())) {
+				if ((position->y() < map->GetHeight() - 1) && ValidPosCheck(position->y() + 1, position->x())) {
 					if (WinCheck(position->y() + 1, position->x() )) {
-						position->move_up();
+						position->Move_Up();
 						Game::is_running = false;
-						std::cout << "YOU WIN CONGRATS" << std::endl;
+						std::cout << "YOU WIN CONGRATS!" << std::endl;
 					}
-					position->move_up();
+					position->Move_Up();
 				}
 				break;
 			case SDLK_a:
 				if (position->x() > 0 && ValidPosCheck(position->y(), position->x() - 1)) {
-					position->move_left();
+					position->Move_Left();
 				}
 				break;
 			case SDLK_d:
-				if ((position->x() < map->getWidth() - 1) && ValidPosCheck(position->y(), position->x() + 1)) {
+				if ((position->x() < map->GetWidth() - 1) && ValidPosCheck(position->y(), position->x() + 1)) {
 					if (WinCheck(position->y() , position->x() + 1)) {
-						position->move_right();
+						position->Move_Right();
 						Game::is_running = false;
-						std::cout << "YOU WIN CONGRATS" << std::endl;
+						std::cout << "YOU WIN CONGRATS!" << std::endl;
 						break;
 					}
-					position->move_right();
+					position->Move_Right();
 				}
 				break;
 			case SDLK_p:
@@ -63,7 +63,7 @@ public:
 		}
 	}
 	bool WinCheck(int x , int y) {
-		return map->getVal(x, y) == 2;
+		return map->GetVal(x, y) == 2;
 	}
 private:
 	int x_movement;

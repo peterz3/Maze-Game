@@ -15,25 +15,26 @@ private:
 
 public:
 	PlayerComponent() = default;
-	PlayerComponent(const char* path, int player_height, int player_width) {
+	PlayerComponent(const char* path) {
 		texture = TextureManager::LoadTexture(path);
-		height = player_height;
-		width = player_width;
 	}
-	void init() override {
-		position = &entity->getComponent<PositionComponent>();
+	void Init() override {
+		position = &entity->GetComponent<PositionComponent>();
+		Map *map = &entity->GetComponent<Map>();
+		height = map->GetDestRectHeight();
+		width = map->GetDestRectWidth();
 		srcRect.x = srcRect.y = 0;
 		srcRect.w = srcRect.h = 32;
 		destRect.w = width;
 		destRect.h = height;
 
 	}
-	void update() override {
+	void Update() override {
 		destRect.x = width * position->x();
 		destRect.y = height * position->y();
 
 	}
-	void draw() override {
+	void Draw() override {
 		TextureManager::Draw(texture, srcRect, destRect);
 	}
 

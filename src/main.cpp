@@ -16,14 +16,14 @@ int main(int argc, char *argv[]) {
 	int frametime;
 
 	game = new Game();
-	game->init("window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 600, false);
-	while (game->running()) {
+	game->Init("window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 600, false);
+	while (game->Running()) {
 
 		framestart = SDL_GetTicks();
 
-		game->handleEvents();
-		game->update();
-		game->render();
+		game->HandleEvents();
+		game->Update();
+		game->Render();
 
 		frametime = SDL_GetTicks() - framestart;
 
@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
 		}
 
 	}
-	game->clean();
+	game->Clean();
+	delete game;
 	return 0;
 }

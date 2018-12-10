@@ -13,7 +13,7 @@ Manager manager;
 SDL_Rect src, dst;
 
 
-auto& playerEntity(manager.addEntity());
+auto& playerEntity(manager.AddEntity());
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
@@ -27,7 +27,7 @@ Game::~Game() {
 
 }
 
-void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
+void Game::Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
 	int flags = 0;
 	if (fullscreen) {
 		flags = SDL_WINDOW_FULLSCREEN;
@@ -41,13 +41,12 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		}
 		is_running = true;
 	}
-	map = new Map();
-	map->init();
-	playerEntity.addComponent<PositionComponent>(0, 0);
-	playerEntity.addComponent<PlayerComponent>("knight.png", map->getDestRectHeight(), map->getDestRectWidth());
-	playerEntity.addComponent<KeyboardController>(map);
+	playerEntity.AddComponent<Map>();
+	playerEntity.AddComponent<PositionComponent>(0, 0);
+	playerEntity.AddComponent<PlayerComponent>("knight.png");
+	playerEntity.AddComponent<KeyboardController>();
 }
-void Game::handleEvents() {
+void Game::HandleEvents() {
 	SDL_PollEvent(&event);
 	switch (event.type)
 	{
@@ -61,25 +60,22 @@ void Game::handleEvents() {
 
 
 }
-void Game::update() {
-	manager.refresh();
-	manager.update();
+void Game::Update() {
+	manager.Refresh();
+	manager.Update();
 
 }
-void Game::render() {
+void Game::Render() {
 	SDL_RenderClear(renderer);
-	map->DrawMap();
-	manager.draw();
+	manager.Draw();
 	SDL_RenderPresent(renderer);
 }
-void Game::clean() {
+void Game::Clean() {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
-	delete map;
-
 	std::cout << "QUITTTED";
 }
-bool Game::running() {
+bool Game::Running() {
 	return is_running;
 }

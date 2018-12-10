@@ -12,21 +12,18 @@ public:
 	Game();
 	~Game();
 
-	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
-	void handleEvents();
-	void update();
-	void render();
-	void clean();
-	bool running();
-	int getMapHeight() { return Game::map->getHeight(); }
-	int getMapWidth() { return Game::map->getWidth(); }
+	void Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
+	void HandleEvents();
+	void Update();
+	void Render();
+	void Clean();
+	bool Running();
 
 	static SDL_Event event;
 	static SDL_Renderer *renderer;
 	static bool is_running;
 
 private:
-	Map* map;
 	int count = 0;
 	SDL_Window *window;
 };
