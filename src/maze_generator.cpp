@@ -16,6 +16,7 @@ MazeGenerator::MazeGenerator(int **MapArray, int map_height, int map_width) {
 		}
 	}
 }
+
 MazeGenerator::~MazeGenerator() {
 	for (int i = 0; i < height; i++) {
 		delete visit_arr[i];

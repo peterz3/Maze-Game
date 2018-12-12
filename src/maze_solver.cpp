@@ -1,10 +1,10 @@
+#pragma once
 #include "maze_solver.h"
 
 void MazeSolver::Init() {
 	map = &entity->GetComponent<Map>();
 	maze_height = map->GetHeight();
 	maze_width = map->GetWidth();
-	std::cout << map->GetWidth();
 	visit_arr = new bool *[maze_height];
 	for (int i = 0; i < maze_height; i++) {
 		visit_arr[i] = new bool[maze_width];
@@ -15,6 +15,7 @@ void MazeSolver::Init() {
 		}
 	}
 }
+
 void MazeSolver::SolveMaze() {
 	if (map->GetVal(1, 0) != 1) {
 		if (RecursiveSolver(1, 0)) { map->ChangeVal(1, 0, 3); }
@@ -24,6 +25,7 @@ void MazeSolver::SolveMaze() {
 	}
 	map->ChangeVal(maze_height - 1, maze_width - 1, 2);
 }
+
 bool MazeSolver::RecursiveSolver(int x, int y) {
 	visit_arr[x][y] = true;
 	if (map->GetVal(x, y) == 2) { return true; }

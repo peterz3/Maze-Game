@@ -60,28 +60,19 @@ private:
 public:
 	Entity(Manager& mManager) : manager(mManager) {}
 
-	void Update()
-	{
-		for (auto& c : components) c->Update();
-	}
-	void Draw()
-	{
-		for (auto& c : components) c->Draw();
-	}
+	void Update();
+
+	void Draw();
 
 	bool IsActive() const { return active; }
+
 	void Destroy() { active = false; }
 
-	bool HasGroup(Group mGroup)
-	{
-		return group_bitset[mGroup];
-	}
+	bool HasGroup(Group mGroup);
 
 	void AddGroup(Group mGroup);
-	void DelGroup(Group mGroup)
-	{
-		group_bitset[mGroup] = false;
-	}
+
+	void DelGroup(Group mGroup);
 
 	template <typename T> bool HasComponent() const
 	{
@@ -95,7 +86,7 @@ public:
 		c->entity = this;
 		std::unique_ptr<Component>uPtr{ c };
 		components.emplace_back(std::move(uPtr));
-		
+
 		component_array[GetComponentTypeID<T>()] = c;
 		component_bitset[GetComponentTypeID<T>()] = true;
 
@@ -116,51 +107,15 @@ private:
 	std::vector<std::unique_ptr<Entity>> entities;
 	std::array<std::vector<Entity*>, max_groups> grouped_entities;
 public:
-	void Update()
-	{
-		for (auto& e : entities) e->Update();
-	}
-	void Draw()
-	{
-		for (auto& e : entities) e->Draw();
-	}
-	void Refresh()
-	{
-		for (auto i(0u); i < max_groups; i++)
-		{
-			auto& v(grouped_entities[i]);
-			v.erase(
-				std::remove_if(std::begin(v), std::end(v),
-					[i](Entity* mEntity)
-			{
-				return !mEntity->IsActive() || !mEntity->HasGroup(i);
-			}),
-				std::end(v));
-		}
+	void Update();
 
-		entities.erase(std::remove_if(std::begin(entities), std::end(entities),
-			[](const std::unique_ptr<Entity> &mEntity)
-		{
-			return !mEntity->IsActive();
-		}),
-			std::end(entities));
-	}
+	void Draw();
 
-	void AddToGroup(Entity* mEntity, Group mGroup)
-	{
-		grouped_entities[mGroup].emplace_back(mEntity);
-	}
+	void Refresh();
 
-	std::vector<Entity*>& GetGroup(Group mGroup)
-	{
-		return grouped_entities[mGroup];
-	}
+	void AddToGroup(Entity* mEntity, Group mGroup);
 
-	Entity& AddEntity()
-	{
-		Entity *e = new Entity(*this);
-		std::unique_ptr<Entity> uPtr{ e };
-		entities.emplace_back(std::move(uPtr));
-		return *e;
-	}
+	std::vector<Entity*>& GetGroup(Group mGroup);
+
+	Entity& AddEntity();
 };

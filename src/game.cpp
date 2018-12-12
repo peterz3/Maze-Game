@@ -9,17 +9,7 @@
 #include "maze_solver.h"
 #include <iostream>
 
-SDL_Texture *image;
-Manager manager;
-SDL_Rect src, dst;
-
-
-auto& playerEntity(manager.AddEntity());
-
 SDL_Renderer* Game::renderer = nullptr;
-SDL_Event Game::event;
-bool Game::is_running = true;
-
 
 Game::Game() {
 
@@ -29,6 +19,8 @@ Game::~Game() {
 }
 
 void Game::Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
+
+	auto& playerEntity(manager.AddEntity());
 	int flags = 0;
 	if (fullscreen) {
 		flags = SDL_WINDOW_FULLSCREEN;
@@ -48,12 +40,12 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 	playerEntity.AddComponent<KeyboardController>();
 	playerEntity.AddComponent<MazeSolver>();
 }
+
 void Game::HandleEvents() {
 	SDL_PollEvent(&event);
 	switch (event.type)
 	{
 	case SDL_QUIT:
-		std::cout << "close";
 		is_running = false;
 		break;
 	default:
@@ -62,22 +54,31 @@ void Game::HandleEvents() {
 
 
 }
+
 void Game::Update() {
 	manager.Refresh();
 	manager.Update();
 
 }
+
 void Game::Render() {
 	SDL_RenderClear(renderer);
 	manager.Draw();
 	SDL_RenderPresent(renderer);
 }
+
 void Game::Clean() {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
-	std::cout << "QUITTTED";
+	std::cout << "QUITTING";
 }
+
 bool Game::Running() {
 	return is_running;
+}
+
+void Manager::AddToGroup(Entity* mEntity, Group mGroup)
+{
+	grouped_entities[mGroup].emplace_back(mEntity);
 }

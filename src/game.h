@@ -1,27 +1,36 @@
 #pragma once
 
-#include "SDL.h"
 #include "map.h"
 #include <stdio.h>
 #include <iostream>
 
+static SDL_Event event;
+static bool is_running = true;
 
 class Game {
 public:
 
 	Game();
+
 	~Game();
 
 	void Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
+
 	void HandleEvents();
+
 	void Update();
+
 	void Render();
+
 	void Clean();
+
 	bool Running();
 
-	static SDL_Event event;
+	SDL_Texture *image;
+	Manager manager;
+	SDL_Rect src, dst;
 	static SDL_Renderer *renderer;
-	static bool is_running;
+
 
 private:
 	int count = 0;

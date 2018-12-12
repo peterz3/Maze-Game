@@ -6,8 +6,11 @@ class MazeSolver : public Component{
 
 public:
 	MazeSolver() = default;
+
 	void Init() override;
+
 	void SolveMaze();
+
 	bool RecursiveSolver(int x, int y);
 
 private:

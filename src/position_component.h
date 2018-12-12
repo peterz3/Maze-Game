@@ -17,8 +17,8 @@ public:
 		xpos = x;
 		ypos = y;
 	}
-	void Update() override {
-	}
+	void Update() override {}
+
 	void Move_Up() { ypos++; }
 
 	void Move_Down() { ypos--; }

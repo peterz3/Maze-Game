@@ -13,6 +13,7 @@ Map::Map() {
 	map_height = 0;
 	map_width = 0;
 }
+
 Map::Map(int height, int width) {
 	wall = TextureManager::LoadTexture("wall.png");
 	space = TextureManager::LoadTexture("space.png");
@@ -21,6 +22,7 @@ Map::Map(int height, int width) {
 	map_height = height;
 	map_width = width;
 }
+
 Map::~Map() {
 	delete generator;
 	for (int i = 0; i < map_height; i++) {
@@ -28,6 +30,7 @@ Map::~Map() {
 	}
 	delete map;
 }
+
 void Map::Init() {
 	if (map_height == 0 && map_width == 0) {
 		int x;
@@ -52,6 +55,7 @@ void Map::Init() {
 		map_height = 2 * map_height - 1;
 		map_width = 2 * map_width - 1; 
 	}
+	std::cout << "Use W,A,S,D to move or hit P to get solution" << std::endl;
 
 	map = new int*[map_height];
 	for (int i = 0; i < map_height; i++) {
@@ -123,6 +127,7 @@ void Map::GenerateRemainderRectangles() {
 	remainder_width.y = 0;
 	remainder_width.x = screen_width - remainder_width.w;
 }
+
 int Map::GetVal(int row, int column) {
 	return map[row][column];
 }
@@ -132,6 +137,9 @@ void Map::ChangeVal(int row, int col, int val) {
 }
 
 int Map::GetHeight() { return map_height; }
+
 int Map::GetWidth() { return map_width; }
+
 int Map::GetDestRectHeight() { return dest.h; }
+
 int Map::GetDestRectWidth() { return dest.w; }

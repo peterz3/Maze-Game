@@ -11,8 +11,8 @@ public:
 	Map *map;
 	MazeSolver *solver;
 
-	KeyboardController() {
-	}
+	KeyboardController() = default;
+
 	bool ValidPosCheck(int row, int col) {
 		return (map->GetVal(row , col )) != 1;
 	}
@@ -23,10 +23,11 @@ public:
 		x_movement = map->GetDestRectWidth();
 		y_movement = map->GetDestRectHeight();
 	}
+
 	void Update() override {
-		if (Game::event.type == SDL_KEYDOWN)
+		if (event.type == SDL_KEYDOWN)
 		{
-			switch (Game::event.key.keysym.sym) {
+			switch (event.key.keysym.sym) {
 			case SDLK_w:
 				if (position->y() > 0 && ValidPosCheck(position->y() - 1, position->x())) {
 					position->Move_Down();
@@ -36,7 +37,7 @@ public:
 				if ((position->y() < map->GetHeight() - 1) && ValidPosCheck(position->y() + 1, position->x())) {
 					if (WinCheck(position->y() + 1, position->x() )) {
 						position->Move_Up();
-						Game::is_running = false;
+						is_running = false;
 						std::cout << "YOU WIN CONGRATS!" << std::endl;
 					}
 					position->Move_Up();
@@ -51,7 +52,7 @@ public:
 				if ((position->x() < map->GetWidth() - 1) && ValidPosCheck(position->y(), position->x() + 1)) {
 					if (WinCheck(position->y() , position->x() + 1)) {
 						position->Move_Right();
-						Game::is_running = false;
+						is_running = false;
 						std::cout << "YOU WIN CONGRATS!" << std::endl;
 						break;
 					}
@@ -67,9 +68,11 @@ public:
 			}
 		}
 	}
+
 	bool WinCheck(int x , int y) {
 		return map->GetVal(x, y) == 2;
 	}
+
 private:
 	int x_movement;
 	int y_movement;

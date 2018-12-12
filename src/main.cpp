@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
 		}
 
 	}
+
 	game->Clean();
 	delete game;
 	return 0;
