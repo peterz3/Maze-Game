@@ -6,19 +6,32 @@
 class Map : public Component {
 public:
 	Map(int height, int width);
+
 	Map();
+
 	~Map();
+
 	void Draw() override;
+
 	int GetHeight();
+
 	int GetWidth();
+
 	int GetDestRectHeight();
+
 	int GetDestRectWidth();
+
 	void GenerateRemainderRectangles();
+
 	int GetVal(int row, int column);
+
 	void ChangeVal(int row, int col, int val);
+
 	void Init() override;
+
 	const int screen_width = 1000;
 	const int screen_height = 600;
+
 private:
 	SDL_Rect dest;
 	SDL_Rect src;

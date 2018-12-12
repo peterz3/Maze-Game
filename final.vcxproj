@@ -188,10 +188,10 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\ECS.cpp" />
+    <ClCompile Include="src\ecs.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Map.cpp" />
+    <ClCompile Include="src\map.cpp" />
     <ClCompile Include="src\maze_generator.cpp" />
     <ClCompile Include="src\maze_solver.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -210,7 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\catch.hpp" />
-    <ClInclude Include="src\ECS.h" />
+    <ClInclude Include="src\ecs.h" />
     <ClInclude Include="src\game.h" />
     <ClInclude Include="src\keyboard_controller.h" />
     <ClInclude Include="src\map.h" />

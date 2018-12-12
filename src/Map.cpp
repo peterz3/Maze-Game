@@ -6,19 +6,19 @@
 
 
 Map::Map() {
-	wall = TextureManager::LoadTexture("wall.png");
-	space = TextureManager::LoadTexture("space.png");
-	finish = TextureManager::LoadTexture("finish.png");
-	solution = TextureManager::LoadTexture("solution.png");
+	wall = TextureManager::LoadTexture("images/wall.png");
+	space = TextureManager::LoadTexture("images/space.png");
+	finish = TextureManager::LoadTexture("images/finish.png");
+	solution = TextureManager::LoadTexture("images/solution.png");
 	map_height = 0;
 	map_width = 0;
 }
 
 Map::Map(int height, int width) {
-	wall = TextureManager::LoadTexture("wall.png");
-	space = TextureManager::LoadTexture("space.png");
-	finish = TextureManager::LoadTexture("finish.png");
-	solution = TextureManager::LoadTexture("solution.png");
+	wall = TextureManager::LoadTexture("images/wall.png");
+	space = TextureManager::LoadTexture("images/space.png");
+	finish = TextureManager::LoadTexture("images/finish.png");
+	solution = TextureManager::LoadTexture("images/solution.png");
 	map_height = height;
 	map_width = width;
 }

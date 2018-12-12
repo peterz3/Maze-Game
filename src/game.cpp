@@ -36,7 +36,7 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 	}
 	playerEntity.AddComponent<Map>();
 	playerEntity.AddComponent<PositionComponent>(0, 0);
-	playerEntity.AddComponent<PlayerComponent>("knight.png");
+	playerEntity.AddComponent<PlayerComponent>("images/knight.png");
 	playerEntity.AddComponent<KeyboardController>();
 	playerEntity.AddComponent<MazeSolver>();
 }
