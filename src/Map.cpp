@@ -19,8 +19,8 @@ Map::Map(int height, int width) {
 	space = TextureManager::LoadTexture("images/space.png");
 	finish = TextureManager::LoadTexture("images/finish.png");
 	solution = TextureManager::LoadTexture("images/solution.png");
-	map_height = height;
-	map_width = width;
+	map_height =  2 * height - 1;
+	map_width = 2 * width - 1;
 }
 
 Map::~Map() {
@@ -50,10 +50,6 @@ void Map::Init() {
 		}
 		map_width = y * 2 - 1;
 	
-	}
-	else {
-		map_height = 2 * map_height - 1;
-		map_width = 2 * map_width - 1; 
 	}
 	std::cout << "Use W,A,S,D to move or hit P to get solution" << std::endl;
 
