@@ -25,9 +25,9 @@ public:
 	}
 
 	void Update() override {
-		if (event.type == SDL_KEYDOWN)
+		if (Game::event.type == SDL_KEYDOWN)
 		{
-			switch (event.key.keysym.sym) {
+			switch (Game::event.key.keysym.sym) {
 				case SDLK_w:
 					if (position->y() > 0 && ValidPosCheck(position->y() - 1, position->x())) {
 						position->Move_Down();

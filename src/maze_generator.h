@@ -24,6 +24,12 @@ public:
 
 	void RecursiveBackTracker(int x, int y);
 
+	int GetVisitArrHeight() { return height;}
+
+	int GetVisitArrWidth() { return width; }
+
+	bool GetVisitArrVal(int row, int col) { return visit_arr[row][col];  }
+
 private:
 	int **map;
 	bool **visit_arr;

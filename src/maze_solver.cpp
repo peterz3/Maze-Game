@@ -26,38 +26,38 @@ void MazeSolver::SolveMaze() {
 	map->ChangeVal(maze_height - 1, maze_width - 1, 2);
 }
 
-bool MazeSolver::RecursiveSolver(int x, int y) {
-	visit_arr[x][y] = true;
-	if (map->GetVal(x, y) == 2) { return true; }
+bool MazeSolver::RecursiveSolver(int col, int row) {
+	visit_arr[col][row] = true;
+	if (map->GetVal(col, row) == 2) { return true; }
 
-	if (x < maze_height - 1) {
-		if (map->GetVal(x + 1, y) != 1 && visit_arr[x + 1][y] == false) {
-			if (RecursiveSolver(x + 1, y)) {
-				map->ChangeVal(x + 1, y, 3);
+	if (col < maze_height - 1) {
+		if (map->GetVal(col + 1, row) != 1 && visit_arr[col + 1][row] == false) {
+			if (RecursiveSolver(col + 1, row)) {
+				map->ChangeVal(col + 1, row, 3);
 				return true;
 			}
 		}
 	}
-	if (x > 0) {
-		if (map->GetVal(x - 1, y) != 1 && visit_arr[x - 1][y] == false) {
-			if (RecursiveSolver(x - 1, y)) {
-				map->ChangeVal(x - 1, y, 3);
+	if (col > 0) {
+		if (map->GetVal(col - 1, row) != 1 && visit_arr[col - 1][row] == false) {
+			if (RecursiveSolver(col - 1, row)) {
+				map->ChangeVal(col - 1, row, 3);
 				return true;
 			}
 		}
 	}
-	if (y > 0) {
-		if (map->GetVal(x, y - 1) != 1 && visit_arr[x][y - 1] == false) {
-			if (RecursiveSolver(x, y - 1)) {
-				map->ChangeVal(x, y - 1, 3);
+	if (row > 0) {
+		if (map->GetVal(col, row - 1) != 1 && visit_arr[col][row - 1] == false) {
+			if (RecursiveSolver(col, row - 1)) {
+				map->ChangeVal(col, row - 1, 3);
 				return true;
 			}
 		}
 	}
-	if (y < maze_width - 1) {
-		if (map->GetVal(x, y + 1) != 1 && visit_arr[x][y + 1] == false) {
-			if (RecursiveSolver(x, y + 1)) {
-				map->ChangeVal(x, y + 1, 3);
+	if (row < maze_width - 1) {
+		if (map->GetVal(col, row + 1) != 1 && visit_arr[col][row + 1] == false) {
+			if (RecursiveSolver(col, row + 1)) {
+				map->ChangeVal(col, row + 1, 3);
 				return true;
 			}
 		}

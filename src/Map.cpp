@@ -94,20 +94,20 @@ void Map::Draw() {
 			dest.x = (column * dest.w);
 			dest.y = (row * dest.h);
 			switch (type) {
-			case 0:
-				TextureManager::Draw(space, src, dest);
-				break;
-			case 1:
-				TextureManager::Draw(wall, src, dest);
-				break;
-			case 2:
-				TextureManager::Draw(finish, src, dest);
-				break;
-			case 3:
-				TextureManager::Draw(solution, src, dest);
-				break;
-			default:
-				break;
+				case 0:
+					TextureManager::Draw(space, src, dest);
+					break;
+				case 1:
+					TextureManager::Draw(wall, src, dest);
+					break;
+				case 2:
+					TextureManager::Draw(finish, src, dest);
+					break;
+				case 3:
+					TextureManager::Draw(solution, src, dest);
+					break;
+				default:
+					break;
 			}
 		}
 	}
@@ -143,3 +143,9 @@ int Map::GetWidth() { return map_width; }
 int Map::GetDestRectHeight() { return dest.h; }
 
 int Map::GetDestRectWidth() { return dest.w; }
+
+int** Map::GetMapArray() { return map; }
+
+MazeGenerator* Map::GetGenerator() {
+	return generator;
+}

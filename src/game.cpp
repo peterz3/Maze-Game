@@ -10,6 +10,7 @@
 #include <iostream>
 
 SDL_Renderer* Game::renderer = nullptr;
+SDL_Event Game::event;
 
 Game::Game() {
 

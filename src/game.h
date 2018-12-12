@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <iostream>
 
-static SDL_Event event;
 static bool is_running = true;
 
 class Game {
@@ -30,6 +29,7 @@ public:
 	Manager manager;
 	SDL_Rect src, dst;
 	static SDL_Renderer *renderer;
+	static SDL_Event event;
 
 
 private:
