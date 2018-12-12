@@ -2,19 +2,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	gui.setup();
-	gui.add(intSlider.setup("width", 0, 2, 100));
-	gui.add(button.setup("GO!"));
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	int x = gui.getIntSlider("width");
-	if (gui.getButton("GO!")) {
-		
-		ofExit();
-	}
-
 
 }
 

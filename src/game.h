@@ -33,6 +33,5 @@ public:
 
 
 private:
-	int count = 0;
 	SDL_Window *window;
 };

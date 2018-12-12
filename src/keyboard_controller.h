@@ -20,8 +20,6 @@ public:
 	void Init() override {
 		position = &entity->GetComponent<PositionComponent>();
 		map = &entity->GetComponent<Map>();
-		x_movement = map->GetDestRectWidth();
-		y_movement = map->GetDestRectHeight();
 	}
 
 	void Update() override {
@@ -69,11 +67,7 @@ public:
 		}
 	}
 
-	bool WinCheck(int x , int y) {
-		return map->GetVal(x, y) == 2;
+	bool WinCheck(int row , int col) {
+		return map->GetVal(row, col) == 2;
 	}
-
-private:
-	int x_movement;
-	int y_movement;
 };

@@ -16,7 +16,6 @@ Game::Game() {
 
 }
 Game::~Game() {
-
 }
 
 void Game::Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {

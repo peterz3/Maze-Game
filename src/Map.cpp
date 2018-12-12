@@ -33,22 +33,22 @@ Map::~Map() {
 
 void Map::Init() {
 	if (map_height == 0 && map_width == 0) {
-		int x;
-		int y;
+		int height_input;
+		int width_input;
 		std::cout << "please enter a height between 2 and 100" << std::endl;
-		while (!(std::cin >> x) || x > 100 || x < 2) {
+		while (!(std::cin >> height_input) || height_input > 100 || height_input < 2) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Invalid input.  Try again: ";
 		}
-		map_height = x * 2 - 1;
+		map_height = height_input * 2 - 1;
 		std::cout << "please enter map width between 2 and 100" << std::endl;
-		while (!(std::cin >> y) || y > 100 || y < 2) {
+		while (!(std::cin >> width_input) || width_input > 100 || width_input < 2) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << "Invalid input.  Try again: ";
 		}
-		map_width = y * 2 - 1;
+		map_width = width_input * 2 - 1;
 	
 	}
 	std::cout << "Use W,A,S,D to move or hit P to get solution" << std::endl;
@@ -58,10 +58,8 @@ void Map::Init() {
 		map[i] = new int[map_width];
 	}
 	GenerateRemainderRectangles();
-	src.x = 0;
-	src.y = 0;
-	src.w = 32;
-	src.h = 32;
+	src.x = src.y = 0;
+	src.w = src.h = 32;
 	dest.w = screen_width / map_width;
 	dest.h = screen_height / map_height;
 	dest.x = dest.y = 0;
@@ -142,6 +140,4 @@ int Map::GetDestRectWidth() { return dest.w; }
 
 int** Map::GetMapArray() { return map; }
 
-MazeGenerator* Map::GetGenerator() {
-	return generator;
-}
+MazeGenerator* Map::GetGenerator() { return generator; }
