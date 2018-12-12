@@ -37,40 +37,40 @@ void  MazeGenerator::RecursiveBackTracker(int x, int y)
 		Direction dir = viableDirections[rand];
 		viableDirections.erase(viableDirections.begin() + rand);
 		switch (dir) {
-		case 1:
-			if (x > 0) {
-				if (visit_arr[x - 1][y] == false) {
-					map[2 * x - 1][2 * y] = 0;
-					RecursiveBackTracker(x - 1, y);
+			case 1:
+				if (x > 0) {
+					if (visit_arr[x - 1][y] == false) {
+						map[2 * x - 1][2 * y] = 0;
+						RecursiveBackTracker(x - 1, y);
+					}
 				}
-			}
-			break;
-		case 2:
-			if (y < width - 1) {
-				if (visit_arr[x][y + 1] == false) {
-					map[2 * x][2 * y + 1] = 0;
-					RecursiveBackTracker(x, y + 1);
+				break;
+			case 2:
+				if (y < width - 1) {
+					if (visit_arr[x][y + 1] == false) {
+						map[2 * x][2 * y + 1] = 0;
+						RecursiveBackTracker(x, y + 1);
+					}
+				}	
+				break;
+			case 3:
+				if (x < height - 1) {
+					if (visit_arr[x + 1][y] == false) {
+						map[2 * x + 1][2 * y] = 0;
+						RecursiveBackTracker(x + 1, y);
+					}
 				}
-			}
-			break;
-		case 3:
-			if (x < height - 1) {
-				if (visit_arr[x + 1][y] == false) {
-					map[2 * x + 1][2 * y] = 0;
-					RecursiveBackTracker(x + 1, y);
+				break;
+			case 4:
+				if (y > 0) {
+					if (visit_arr[x][y - 1] == false) {
+						map[2 * x][2 * y - 1] = 0;
+						RecursiveBackTracker(x, y - 1);
+					}
 				}
-			}
-			break;
-		case 4:
-			if (y > 0) {
-				if (visit_arr[x][y - 1] == false) {
-					map[2 * x][2 * y - 1] = 0;
-					RecursiveBackTracker(x, y - 1);
-				}
-			}
-			break;
-		default:
-			break;
+				break;
+			default:
+				break;
 		}
 	}
 }

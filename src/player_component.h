@@ -14,6 +14,7 @@ private:
 	int width;
 
 public:
+
 	PlayerComponent() = default;
 
 	PlayerComponent(const char* path) {
@@ -35,7 +36,7 @@ public:
 	void Update() override {
 		destRect.x = width * position->x();
 		destRect.y = height * position->y();
-		
+
 
 	}
 
