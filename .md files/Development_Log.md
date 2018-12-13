@@ -49,3 +49,32 @@ causing for decimal point inaccuracies
 * implemented depth first maze generation algorithm
 * tried fixing overflow error
 * implemented finishing block texture and made it so game quits when you hit it
+
+# 12/7 -12/8
+
+* integrated project into Openframeworks which involved reconfiguring the settings 
+* tried to integrate openframeworks gui into the project to get user input
+* Didnt work because that would require running and SDL game inside of openframeworks
+* renamed file names and created folders
+* was getting bug that file name already existed
+
+# 12/8 - 12/9
+
+* changed some code style to fit google naming
+* bug with static variables being named twice
+* tried to create  a maze solver class, was very difficult because it involved updating the maze after the game start
+* had to make map into a component so it could be retrieved and modified at any point
+* created a better and much harder maze generation algorithm, which started recursion at any random point
+
+# 12/10 - 12/11
+* created recusrive maze solver
+* linked it to P key
+* started creating test folder and directory
+* catch 2 first wasn't working because of function redefinition
+* tried to figure out how to get testing to work with ECS system
+* Got it to work by creating a game object and a manager object and adding components to that game object
+* figured out how to test user input by setting event equal to keydowm
+
+# 12/12
+* implemented all my tests
+* spaced out my functions and classes more
