@@ -1,6 +1,8 @@
 #pragma once
 #include "maze_solver.h"
-
+/*
+the Map component is retrieved and a double array of bool, the same size as the map is generated fully set to false
+*/
 void MazeSolver::Init() {
 	map = &entity->GetComponent<Map>();
 	maze_height = map->GetHeight();
@@ -16,6 +18,9 @@ void MazeSolver::Init() {
 	}
 }
 
+/*
+recursion begins by considering right and down from the start
+*/
 void MazeSolver::SolveMaze() {
 	if (map->GetVal(1, 0) != 1) {
 		if (RecursiveSolver(1, 0)) { map->ChangeVal(1, 0, 3); }
@@ -26,6 +31,12 @@ void MazeSolver::SolveMaze() {
 	map->ChangeVal(maze_height - 1, maze_width - 1, 2);
 }
 
+/*
+first the current cell is marked as visited, then if the current cell is the finish block, we return true
+if the adjacent cells are neither walls, borders or already visited we recurse in that direction
+if the recursive solver return false that means it leads to a dead end, if it is true that means it is on
+path to the finish block, in which case that cell is marked as a solution block
+*/
 bool MazeSolver::RecursiveSolver(int col, int row) {
 	visit_arr[col][row] = true;
 	if (map->GetVal(col, row) == 2) { return true; }

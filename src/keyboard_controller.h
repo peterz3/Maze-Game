@@ -13,15 +13,27 @@ public:
 
 	KeyboardController() = default;
 
+	/*
+	checks that the input coordinates don't lead to a wall
+	*/
 	bool ValidPosCheck(int row, int col) {
 		return (map->GetVal(row , col )) != 1;
 	}
 
+	/*
+	initializes the keyboard controller my getting the map and position member variables
+	*/
 	void Init() override {
 		position = &entity->GetComponent<PositionComponent>();
 		map = &entity->GetComponent<Map>();
 	}
 
+	/*
+	checks wether a key is pressed, also evaluates position before actually moving, by checking
+	for walls and game borders.
+	Also if you move onto the win block using either D or S the game is turned off
+	If P is pressed the maze solver is run
+	*/
 	void Update() override {
 		if (Game::event.type == SDL_KEYDOWN)
 		{
@@ -67,6 +79,8 @@ public:
 		}
 	}
 
+	/*
+	checks wether the input coordinates lead to a finish block*/
 	bool WinCheck(int row , int col) {
 		return map->GetVal(row, col) == 2;
 	}

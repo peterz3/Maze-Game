@@ -17,6 +17,11 @@ Game::Game() {
 }
 Game::~Game() {
 }
+/*
+Generates game screen
+@param title the name of the window
+@param xpos, ypos, width, heigh location and size of screen
+*/
 
 void Game::Init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen) {
 
@@ -41,6 +46,9 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 	playerEntity.AddComponent<MazeSolver>();
 }
 
+/*
+Handles events like user input
+*/
 void Game::HandleEvents() {
 	SDL_PollEvent(&event);
 	switch (event.type)
@@ -55,12 +63,17 @@ void Game::HandleEvents() {
 
 }
 
+/*
+Updates all components
+*/
 void Game::Update() {
 	manager.Refresh();
 	manager.Update();
 
 }
-
+/*
+draws all components
+*/
 void Game::Render() {
 	SDL_RenderClear(renderer);
 	manager.Draw();

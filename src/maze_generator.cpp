@@ -2,6 +2,9 @@
 
 #include "maze_generator.h"
 
+/*
+copies the input map double array, and generates a false bool value for every cell, which means not visited
+*/
 MazeGenerator::MazeGenerator(int **MapArray, int map_height, int map_width) {
 	height = (map_height + 1) / 2;
 	width = (map_width + 1) / 2;
@@ -16,7 +19,9 @@ MazeGenerator::MazeGenerator(int **MapArray, int map_height, int map_width) {
 		}
 	}
 }
-
+/*
+deletes every array pointer then the double array pointer
+*/
 MazeGenerator::~MazeGenerator() {
 	for (int i = 0; i < height; i++) {
 		delete visit_arr[i];
@@ -24,6 +29,13 @@ MazeGenerator::~MazeGenerator() {
 	delete visit_arr;
 }
 
+/*
+Maze Generation
+First the current cell is marked as true,
+then a vector is created containing every possible direction
+each direction is gone through, if the direction is valid and that cell has not yet been visited,
+the wall between that cell and the current one is destroyed and we recurse on that cell
+*/
 void  MazeGenerator::RecursiveBackTracker(int x, int y) 
 {
 	visit_arr[x][y] = true;

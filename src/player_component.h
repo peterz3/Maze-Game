@@ -20,7 +20,9 @@ public:
 	PlayerComponent(const char* path) {
 		texture = TextureManager::LoadTexture(path);
 	}
-
+	/*
+	retrieves map heigh and width in order to creates textuere rectangles
+	*/
 	void Init() override {
 		position = &entity->GetComponent<PositionComponent>();
 		Map *map = &entity->GetComponent<Map>();

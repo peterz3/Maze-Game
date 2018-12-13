@@ -4,7 +4,9 @@
 #include "maze_generator.h"
 #include "map.h"
 
-
+/*
+constructors intiialize textures and map_height and width
+*/
 Map::Map() {
 	wall = TextureManager::LoadTexture("images/wall.png");
 	space = TextureManager::LoadTexture("images/space.png");
@@ -22,7 +24,10 @@ Map::Map(int height, int width) {
 	map_height =  2 * height - 1;
 	map_width = 2 * width - 1;
 }
-
+/*
+destroys every array pointer then the double array pointer
+also destroys generator
+*/
 Map::~Map() {
 	delete generator;
 	for (int i = 0; i < map_height; i++) {
@@ -30,7 +35,12 @@ Map::~Map() {
 	}
 	delete map;
 }
-
+/*
+if the height and width weren't passed throuh the constructor they are obtained by user input
+The input is multiplied by two in order to create a grid-like pattern, which is neccesarry for maze generation
+after that the map array is filled out in a gridlike pattern
+The maze generator is run which destroys walls between cells by visiting every cell, but not destroying every wall
+*/
 void Map::Init() {
 	if (map_height == 0 && map_width == 0) {
 		int height_input;
@@ -80,6 +90,9 @@ void Map::Init() {
 	map[map_height - 1][map_width - 1] = 2;
 }
 
+/*
+map is drawn by iterating through the map double array and displaying the respective texture for each value
+*/
 void Map::Draw() {
 	int type = 0;
 	for (int row = 0; row < map_height; row++) {
@@ -109,6 +122,11 @@ void Map::Draw() {
 	TextureManager::Draw(wall, src, remainder_width);
 }
 
+/*
+calculates what part of the screen isn't being used due to decimal point cutting(not every user input heigh and width
+fits the screen perfectly) 
+The parts not being used have black rectangles overlayed onto them
+*/
 void Map::GenerateRemainderRectangles() {
 	int width_scaler = screen_width / map_width;
 	int height_scaler = screen_height / map_height;

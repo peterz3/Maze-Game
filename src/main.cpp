@@ -1,5 +1,5 @@
 #pragma once
-/*
+
 #include "SDL.h"
 #include "game.h"
 #include "ofMain.h"
@@ -36,4 +36,4 @@ int main(int argc, char *argv[]) {
 	game->Clean();
 	delete game;
 	return 0;
-}*/
+}
